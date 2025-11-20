@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Youth Mentorship and Advocacy Initiative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-blue: #1A2BA8;
+            /* main blue from logo */
+            --blue-light: #bb0da7;
+            /* lighter tone for hover */
+            --blue-dark: #0F1E7A;
+            /* darker tone for depth */
+            --accent-pink: #e83e8c;
+            --accent-green: #28a745;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-pink);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--blue-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-pink);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #d91a7a;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 90px;
+            /* adjust to your preferred size */
+            width: auto;
+            /* keeps correct aspect ratio */
+            object-fit: contain;
+            display: block;
+        }
+
+
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-pink);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+
+        /* Fix for dropdown list items */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            /* Remove default list styling */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+            /* Remove any list styling */
+            list-style: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            color: var(--accent-pink);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Ensure no list markers appear */
+        .nav-menu ul,
+        .nav-menu li {
+            list-style: none;
+        }
+
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 43, 168, 0.7), rgba(15, 30, 122, 0.7)), url('images/img2.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0 80px;
+            margin-top: 70px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb li:after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        /* About Overview */
+        .about-overview {
+            background-color: var(--bg-light);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        /* Objectives & Core Values Section */
+        .objectives-values {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f0f4f8 100%);
+        }
+
+        .objectives-values-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+        }
+
+        .section-header h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Objectives Styles */
+        .objectives-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .objective-item:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--accent-pink);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .objective-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .objective-item:hover .objective-number {
+            background: var(--accent-pink);
+            transform: scale(1.1);
+        }
+
+        .objective-content h4 {
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .objective-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Core Values Styles */
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .value-card {
+            padding: 25px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent-green);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            color: var(--accent-pink);
+            transform: scale(1.1);
+        }
+
+        .value-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .objectives-values-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .objective-item {
+                padding: 20px;
+            }
+
+            .value-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .objectives-values {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                padding: 20px;
+            }
+
+            .objective-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .objective-number {
+                align-self: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-icon {
+                font-size: 2.5rem;
+            }
+
+            .objective-content h4 {
+                font-size: 1.1rem;
+            }
+
+            .value-card h4 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .mission-box,
+        .vision-box {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .mission-box:hover,
+        .vision-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .mission-icon,
+        .vision-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        /* Director Profile */
+        .director-profile {
+            background-color: var(--bg-light);
+        }
+
+        .director-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .director-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .director-text {
+            flex: 1;
+        }
+
+        .director-name {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .director-title-only {
+            color: var(--accent-pink);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .director-title {
+            color: var(--accent-pink);
+            font-weight: 600;
+            padding-left: 20px;
+            margin: 25px 0;
+        }
+
+        .director-quote {
+            font-style: italic;
+            border-left: 4px solid var(--accent-green);
+            padding-left: 20px;
+            margin: 25px 0;
+            color: var(--text-light);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--bg-light);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image {
+            border-color: var(--accent-pink);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: var(--accent-pink);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(26, 43, 168, 0.7), rgba(15, 30, 122, 0.7)), url('images/youth1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+        }
+
+        .cta-section h2:after {
+            background-color: var(--accent-pink);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-pink);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content,
+            .director-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                display: none;
+            }
+
+            .nav-item:hover .dropdown {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo"><img src="images/YMAI.png"></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="#objectives" class="dropdown-item">Objectives & Core Values</a></li>
+                        <li><a href="#vision" class="dropdown-item">Mission & Vision</a></li>
+                        <li><a href="#director" class="dropdown-item">Founders Profile</a></li>
+                        <li><a href="#team" class="dropdown-item">Team</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="programs.html" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="programs.html#mentorship-circles" class="dropdown-item">Youth Mentorship
+                                Circles</a></li>
+                        <li><a href="programs.html#leadership-bootcamps" class="dropdown-item">Leadership Bootcamps</a>
+                        </li>
+                        <li><a href="programs.html#advocacy-forums" class="dropdown-item">Youth Advocacy Forums</a></li>
+                        <li><a href="programs.html#community-projects" class="dropdown-item">Community Projects</a></li>
+                        <li><a href="programs.html#scholarship-support" class="dropdown-item">Scholarship Support</a>
+                        </li>
+                        <li><a href="programs.html#mental-health" class="dropdown-item">Mental Health Workshops</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Our Organization</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- About Overview -->
+    <section class="about-overview">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>YMAI</h2>
+                    <p>Youth Mentorship and Advocacy Initiatives (YMAI) is a youth-focused non-governmental Organization
+                        committed to empowering young people through mentorship, leadership development, capacity
+                        building, and advocacy. We believe that every young person has potential, and with the right
+                        guidance, opportunities, and support, they can become transformational leaders in their
+                        communities and beyond.</p>
+                </div>
+
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                        alt="Youth group discussion">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- Objectives & Core Values Section -->
+    <section class="objectives-values" id="objectives">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Objectives & Core Values</h2>
+                <p>Guiding principles that drive our mission and define our approach</p>
+            </div>
+
+            <div class="objectives-values-grid">
+                <!-- Objectives Section -->
+                <div class="objectives-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Our Strategic Objectives</h3>
+                        <p>Clear goals that guide our programs and initiatives</p>
+                    </div>
+
+                    <div class="objectives-list">
+                        <div class="objective-item">
+                            <div class="objective-number">1</div>
+                            <div class="objective-content">
+                                <h4>Structured Mentorship</h4>
+                                <p>Provide structured mentorship that enables young people to develop essential life
+                                    skills, self-confidence, and a clear sense of purpose.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">2</div>
+                            <div class="objective-content">
+                                <h4>Leadership Development</h4>
+                                <p>Equip youth with leadership and professional competencies needed to excel in
+                                    academics, careers, entrepreneurship, and community service.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">3</div>
+                            <div class="objective-content">
+                                <h4>Safe Engagement Spaces</h4>
+                                <p>Create safe engagement spaces where young people can freely discuss their challenges,
+                                    aspirations, and ideas without fear or judgment.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">4</div>
+                            <div class="objective-content">
+                                <h4>Positive Values & Citizenship</h4>
+                                <p>Promote positive values and responsible citizenship through trainings, awareness
+                                    campaigns, and community-driven initiatives.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">5</div>
+                            <div class="objective-content">
+                                <h4>Youth Advocacy</h4>
+                                <p>Advocate for youth-friendly policies that enhance access to education, economic
+                                    opportunities, and developmental resources.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">6</div>
+                            <div class="objective-content">
+                                <h4>Opportunity Connection</h4>
+                                <p>Connect young people to opportunities such as trainings, internships, scholarships,
+                                    and entrepreneurial support platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">7</div>
+                            <div class="objective-content">
+                                <h4>Community Participation</h4>
+                                <p>Encourage community participation by supporting youth-led solutions to local
+                                    challenges.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">8</div>
+                            <div class="objective-content">
+                                <h4>Wellbeing Support</h4>
+                                <p>Strengthen mental, emotional, and social wellbeing through counseling, peer support,
+                                    and personal development programs.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">9</div>
+                            <div class="objective-content">
+                                <h4>Strategic Partnerships</h4>
+                                <p>Build networks and partnerships with schools, NGOs, institutions, and community
+                                    leaders for the benefit of young people.</p>
+                            </div>
+                        </div>
+
+                        <div class="objective-item">
+                            <div class="objective-number">10</div>
+                            <div class="objective-content">
+                                <h4>Continuous Improvement</h4>
+                                <p>Monitor and evaluate youth development outcomes to ensure continuous improvement of
+                                    programs and services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Values Section -->
+                <div class="values-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Our Core Values</h3>
+                        <p>The principles that define who we are and how we operate</p>
+                    </div>
+
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Integrity</h4>
+                            <p>We maintain honesty, transparency, and ethical standards in all our actions and
+                                relationships.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h4>Service</h4>
+                            <p>We are committed to serving youth and communities with dedication, compassion, and
+                                excellence.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h4>Empathy</h4>
+                            <p>We listen, understand, and respond to the unique needs and perspectives of every young
+                                person.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-people-carry"></i>
+                            </div>
+                            <h4>Collaboration</h4>
+                            <p>We believe in the power of partnerships and work together to achieve greater impact.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4>Innovation</h4>
+                            <p>We embrace creative approaches and continuously seek better ways to serve youth.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <h4>Purpose-driven Leadership</h4>
+                            <p>We lead with vision, inspire action, and empower others to create positive change.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Mission & Vision -->
+    <section class="mission-vision-section">
+        <div class="container">
+            <div class="mission-vision">
+                <div class="mission-box" id="mission">
+                    <div class="mission-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h2>Our Mission</h2>
+                    <p>To inspire, guide, and support young people through mentorship, leadership development, and
+                        advocacy. </p>
+                </div>
+                <div class="vision-box" id="vision">
+                    <div class="vision-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h2>Our Vision</h2>
+                    <p>To build a generation of empowered, purpose-driven young leaders who are equipped to shape a
+                        better future for themselves and their society.</p>
+                </div>
+            </div>
+    </section>
+
+    <!-- Director Profile -->
+    <section class="director-profile" id="director">
+        <div class="container">
+            <div class="section-title">
+                <h2>Founder's Profile</h2>
+            </div>
+            <div class="director-container">
+                <div class="director-image">
+                    <img src="images/director.jpg" alt="Dr. Sarah Johnson">
+                </div>
+                <div class="director-text">
+                    <h3 class="director-name">Mr. Wellington Nkemadu</h3>
+                    <p class="director-title-only">Founder & Chairman</p>
+                    Dr. Wellington Nkemadu is a passionate youth development advocate and founder of YMAI, an
+                    organization registered by the Corporate Affairs Commission of Nigeria. His dedication to empowering
+                    young people drives YMAI's vision of building capable, confident, and responsible future leaders.
+
+                    He obtained a B.A. in History (2nd Class Upper Division) from the University of Port Harcourt, where
+                    he received the Subject Prize in History and Diplomatic Studies and Professor Nwanna Nzewunwa’s
+                    Memorial Prize.
+
+                    In 2005, he was employed by the Independent Corrupt Practices and Other Related Offences Commission
+                    (ICPC) as an Investigator. While at the ICPC, he obtained a Master’s degree in Law Enforcement and
+                    Criminal Justice from Ahmadu Bello University, Zaria. He also obtained a Senior Executive
+                    Certificate in Institutional Integrity Management from the University of Hong Kong.
+
+
+                    <p class="director-title">Professional Expertise & Service</p>
+                    Dr. Nkemadu has twenty years’ experience and expertise in the investigation of corruption, bribery,
+                    money laundering, illicit financial flows (IFF), employment and admission racketeering, project
+                    tracking, and other related offences.
+
+                    He served the ICPC in various strategic roles, including:
+
+                    Investigator and Team Leader in General Investigations.
+
+                    Head of Special Task Forces and Team Leader for Sting Operations targeting low-level corruption.
+
+                    Coordinator of training for ICPC recruits from 2012 to 2023, and a lecturer at the Anti-Corruption
+                    Academy of Nigeria.
+
+                    Prosecution Witness in several cases across the country.
+
+                    He served as the Chief Security Officer of the Commission for six years, responsible for developing
+                    and implementing security protocols at the Headquarters and State offices. He supervised personnel
+                    from the Nigeria Police, Nigeria Security and Civil Defence Corps, and Fire Service, and managed the
+                    Headquarters Detention facility.
+
+
+                    <p class="director-title"> Qualifications & Affiliations</p>
+                    He holds a Graduate Membership of the Nigerian Institute of Management, is an Associate Member of
+                    the Association of Certified Fraud Examiners, a Fellow of the Institute of Corporate Administration
+                    of Nigeria, and a Member of the Nigerian Army Resource Centre (mnarc). He is also a Doctoral Fellow
+                    of the Institute of Leadership Manpower & Management Development (ILMMD).
+
+                    Dr. Wellington Nkemadu retired from the ICPC after years of dedicated service on November 10, 2025.
+                    He is married with children, and enjoys travelling, reading, and watching documentaries.
+                    <p class="director-quote">"Our youth are not just the leaders of tomorrow—they are partners in
+                        creating change today. When we listen to their voices, honor their experiences, and invest in
+                        their potential, we all benefit from the more just, compassionate, and innovative world they
+                        will help build."</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>Dedicated professionals committed to youth empowerment</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80"
+                            alt="Michael Chen">
+                    </div>
+                    <h3 class="member-name">Michael Chen</h3>
+                    <p class="member-role">Program Director</p>
+                    <p class="member-bio">Michael oversees all youth programs with 10+ years of experience in nonprofit
+                        management and youth development.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/img1.jpg" alt="Aisha Williams">
+                    </div>
+                    <h3 class="member-name">Aisha Williams</h3>
+                    <p class="member-role">Mentorship Coordinator</p>
+                    <p class="member-bio">Aisha manages our mentor matching and training programs, ensuring meaningful
+                        connections between mentors and mentees.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                            alt="David Rodriguez">
+                    </div>
+                    <h3 class="member-name">David Rodriguez</h3>
+                    <p class="member-role">Community Engagement Manager</p>
+                    <p class="member-bio">David builds partnerships with local organizations and coordinates our
+                        community advocacy initiatives.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                            alt="Priya Sharma">
+                    </div>
+                    <h3 class="member-name">Priya Sharma</h3>
+                    <p class="member-role">Education Specialist</p>
+                    <p class="member-bio">Priya develops our educational curriculum and provides academic support to
+                        program participants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Us in Making a Difference</h2>
+            <p>Whether you're interested in volunteering, partnering with us, or supporting our programs
+                financially,
+                there are many ways to get involved and help us empower the next generation.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-secondary">Become a Volunteer</a>
+                <a href="contact.html" class="btn btn-primary">Support Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Youth Mentor</h3>
+                    <p>Empowering youth through mentorship, leadership development, and advocacy to create
+                        positive
+                        change in communities.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="programs.html">Youth Leadership</a></li>
+                        <li><a href="programs.html">Mentorship</a></li>
+                        <li><a href="programs.html">Career Guidance</a></li>
+                        <li><a href="programs.html">Advocacy</a></li>
+                        <li><a href="programs.html">Community Engagement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Youth Street, City, State 12345</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> ymainitiatives@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Youth Mentorship and Advocacy Initiative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+
+</html>

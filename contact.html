@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Youth Mentorship and Advocacy Initiative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-blue: #1A2BA8;
+            /* main blue from logo */
+            --blue-light: #3148D4;
+            /* lighter tone for hover */
+            --blue-dark: #0F1E7A;
+            /* darker tone for depth */
+            --accent-pink: #e83e8c;
+            --accent-green: #28a745;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-pink);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--blue-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-pink);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #d91a7a;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 90px;
+            /* adjust to your preferred size */
+            width: auto;
+            /* keeps correct aspect ratio */
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-pink);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        /* Fix for dropdown list items */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            /* Remove default list styling */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+            /* Remove any list styling */
+            list-style: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            color: var(--accent-pink);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Ensure no list markers appear */
+        .nav-menu ul,
+        .nav-menu li {
+            list-style: none;
+        }
+
+
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 43, 168, 0.7), rgba(15, 30, 122, 0.7)), url('https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0 80px;
+            margin-top: 70px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb li:after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 5px;
+            color: var(--primary-blue);
+        }
+
+        .contact-details p {
+            margin-bottom: 0;
+            color: var(--text-light);
+        }
+
+        .business-hours {
+            margin-top: 40px;
+        }
+
+        .business-hours h4 {
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(26, 75, 140, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(26, 75, 140, 0.05);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-pink);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                display: none;
+            }
+
+            .nav-item:hover .dropdown {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo"><img src="images/YMAI.png"></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="about.html#objectives" class="dropdown-item">Objectives & Core Values</a></li>
+                        <li><a href="about.html#vision" class="dropdown-item">Mission & Vision</a></li>
+                        <li><a href="about.html#director" class="dropdown-item">Founders Profile</a></li>
+                        <li><a href="about.html#team" class="dropdown-item">Team</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="programs.html" class="nav-link">Programs <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown">
+                        <li><a href="programs.html#mentorship-circles" class="dropdown-item">Youth Mentorship
+                                Circles</a></li>
+                        <li><a href="programs.html#leadership-bootcamps" class="dropdown-item">Leadership Bootcamps</a>
+                        </li>
+                        <li><a href="programs.html#advocacy-forums" class="dropdown-item">Youth Advocacy Forums</a></li>
+                        <li><a href="programs.html#community-projects" class="dropdown-item">Community Projects</a></li>
+                        <li><a href="programs.html#scholarship-support" class="dropdown-item">Scholarship Support</a>
+                        </li>
+                        <li><a href="programs.html#mental-health" class="dropdown-item">Mental Health Workshops</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team - we're here to help and answer any questions</p>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>123 Youth Empowerment Street<br>Cityville, State 12345<br>United States</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>+1 (123) 456-7890</p>
+                            <p>+1 (123) 456-7891 (Fax)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>info@youthmentor.org</p>
+                            <p>support@youthmentor.org</p>
+                        </div>
+                    </div>
+
+                    <div class="business-hours">
+                        <h4>Office Hours</h4>
+                        <ul class="hours-list">
+                            <li><span>Monday - Friday</span> <span>9:00 AM - 6:00 PM</span></li>
+                            <li><span>Saturday</span> <span>10:00 AM - 4:00 PM</span></li>
+                            <li><span>Sunday</span> <span>Closed</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="programs">Program Information</option>
+                                <option value="volunteer">Volunteer Opportunities</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="donation">Donation Information</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message here..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Us</h2>
+                <p>Visit our office or get directions</p>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Interactive Map</h3>
+                    <p>Google Maps integration would appear here</p>
+                    <p>123 Youth Empowerment Street, Cityville, State 12345</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I get involved as a volunteer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We welcome volunteers in various capacities. You can apply through our volunteer application
+                            form on our website, attend one of our volunteer orientation sessions, or contact our
+                            volunteer coordinator at volunteer@youthmentor.org for more information.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are the eligibility requirements for your programs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our programs are generally open to youth aged 13-24. Specific eligibility requirements vary
+                            by program. Please visit our Programs page for detailed information or contact our program
+                            coordinators for specific requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I make a donation to support your work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can make a donation through our website's donation portal, via bank transfer, or by
+                            mailing a check to our office address. All donations are tax-deductible, and we provide
+                            receipts for your records. For large donations or corporate partnerships, please contact our
+                            development team.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer internships or fellowship opportunities?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer internship and fellowship opportunities for students and recent graduates
+                            interested in youth development, nonprofit management, and community advocacy. Positions are
+                            posted on our website and through university career centers. You can also send your resume
+                            to careers@youthmentor.org.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Youth Mentor</h3>
+                    <p>Empowering youth through mentorship, leadership development, and advocacy to create positive
+                        change in communities.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="programs.html#leadership">Youth Leadership</a></li>
+                        <li><a href="programs.html#mentorship">Mentorship</a></li>
+                        <li><a href="programs.html#mentorship">Career Guidance</a></li>
+                        <li><a href="programs.html#advocacy">Advocacy</a></li>
+                        <li><a href="programs.html#advocacy">Community Engagement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Youth Street, City, State 12345</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> ymainitiatives@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Youth Mentorship and Advocacy Initiative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+
+            // Simple validation
+            if (name && email && subject) {
+                alert(`Thank you, ${name}! Your message has been sent successfully. We'll get back to you at ${email} soon.`);
+                contactForm.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+
+</html>

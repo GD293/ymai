@@ -9,12 +9,9 @@
     <style>
         /* CSS Variables for Brand Colors */
         :root {
-            --primary-blue: #1A2BA8;
-            /* main blue from logo */
-            --blue-light: #3148D4;
-            /* lighter tone for hover */
-            --blue-dark: #0F1E7A;
-            /* darker tone for depth */
+            --primary-blue: #1a4b8c;
+            --blue-light: #2c6bc0;
+            --blue-dark: #0d2b52;
             --accent-pink: #e83e8c;
             --accent-green: #28a745;
             --text-dark: #333;
@@ -186,15 +183,15 @@
             padding: 15px 0;
         }
 
-        .logo img {
-            height: 90px;
-            /* adjust to your preferred size */
-            width: auto;
-            /* keeps correct aspect ratio */
-            object-fit: contain;
-            display: block;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
         }
 
+        .logo span {
+            color: var(--accent-pink);
+        }
 
         .nav-menu {
             display: flex;
@@ -273,7 +270,7 @@
 
         /* Page Header */
         .page-header {
-            background: linear-gradient(rgba(26, 43, 168, 0.7), rgba(15, 30, 122, 0.7)), url('images/teamwork.jpg');
+            background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(26, 75, 140, 0.8)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -573,11 +570,8 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            justify-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .team-member {
@@ -589,8 +583,6 @@
             background: var(--white);
             box-shadow: var(--shadow);
             padding: 20px;
-            width: 100%;
-            max-width: 350px;
         }
 
         .team-member:hover {
@@ -670,53 +662,6 @@
             background: #d91a7a;
             transform: translateX(-50%) translateY(-2px);
             box-shadow: 0 6px 15px rgba(232, 62, 140, 0.4);
-        }
-
-        /* Responsive Design for Team Section */
-        @media (max-width: 1200px) {
-            .team-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 25px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                justify-items: center;
-            }
-
-            .team-member {
-                max-width: 320px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-                justify-items: center;
-            }
-
-            .team-member {
-                max-width: 350px;
-            }
-
-            .member-image {
-                width: 160px;
-                height: 160px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .team-member {
-                max-width: 100%;
-                margin: 0 15px;
-            }
-
-            .member-image {
-                width: 140px;
-                height: 140px;
-            }
         }
 
         /* Modal Styles */
@@ -840,7 +785,7 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(rgba(26, 43, 168, 0.7), rgba(15, 30, 122, 0.7)), url('images/smiling-boy.jpg');
+            background: linear-gradient(rgba(26, 75, 140, 0.9), rgba(26, 75, 140, 0.9)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: var(--white);
@@ -1043,120 +988,7 @@
 
             .modal-details h2 {
                 font-size: 1.7rem;
-                text-align: left;
             }
-        }
-
-        /* Enhanced Modal Styles for Formatted Content */
-        .modal-details {
-            text-align: left;
-        }
-
-        .profile-content {
-            line-height: 1.7;
-            color: var(--text-dark);
-        }
-
-        .profile-intro {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .profile-education {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .profile-section {
-            margin-bottom: 30px;
-        }
-
-        .profile-section h4 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .profile-section p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .profile-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 20px 0;
-        }
-
-        .profile-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            position: relative;
-            padding-left: 25px;
-            text-align: left;
-        }
-
-        .profile-list li:last-child {
-            border-bottom: none;
-        }
-
-        .profile-list li:before {
-            content: '•';
-            color: var(--accent-pink);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        .profile-list strong {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        /* Ensure proper text alignment and spacing */
-        .modal-bio {
-            text-align: justify;
-            line-height: 1.7;
-        }
-
-        /* Responsive text alignment */
-        @media (max-width: 768px) {
-            .modal-details {
-                text-align: left;
-            }
-
-            .profile-section p {
-                text-align: left;
-            }
-
-            .profile-list li {
-                text-align: left;
-            }
-        }
-
-        /* Improve readability */
-        .profile-content p {
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-
-        .profile-content strong {
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        /* Add some spacing improvements */
-        .profile-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .profile-intro strong {
-            color: var(--accent-pink);
-            font-size: 1.1rem;
         }
 
         @media (max-width: 576px) {
@@ -1259,7 +1091,8 @@
                 </div>
 
                 <div class="about-image">
-                    <img src="images/img2.jpeg" alt="Youth group discussion">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                        alt="Youth group discussion">
                 </div>
 
             </div>
@@ -1533,43 +1366,48 @@
             </div>
         </div>
     </section>
-
     <!-- Meet the Team -->
     <section class="team-section" id="team">
         <div class="container">
             <div class="section-title">
-                <h2>Board of Trustees</h2>
-                <p>Our board of trustees is made up of diverse individuals with relevant expertise and requisite field
-                    experience to drive the cause of the organisation.</p>
+                <h2>Meet Our Team</h2>
+                <p>Dedicated professionals committed to youth empowerment</p>
             </div>
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-image">
-                        <img src="images/BOTmember2.jpg" alt="Henry Nkemadu">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80"
+                            alt="Michael Chen">
                     </div>
-                    <h3 class="member-name">Dr Henry Nkemadu</h3>
-                    <p class="member-role">Board Member</p>
-                    <button class="view-profile-btn" data-member="henry-nkemadu">View Profile</button>
+                    <h3 class="member-name">Michael Chen</h3>
+                    <p class="member-role">Program Director</p>
+                    <p class="member-bio">Michael oversees all youth programs with 10+ years of experience in nonprofit
+                        management and youth development.</p>
+                    <button class="view-profile-btn" data-member="michael-chen">View Profile</button>
                 </div>
                 <div class="team-member">
                     <div class="member-image">
-                        <img src="images/BOTmember.jpg" alt="Aisha Williams">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80"
+                            alt="Aisha Williams">
                     </div>
-                    <h3 class="member-name">Patience Ikoro</h3>
-                    <p class="member-role">Board Member</p>
-                    <button class="view-profile-btn" data-member="patience-ikoro">View Profile</button>
-
+                    <h3 class="member-name">Aisha Williams</h3>
+                    <p class="member-role">Mentorship Coordinator</p>
+                    <p class="member-bio">Aisha manages our mentor matching and training programs, ensuring meaningful
+                        connections between mentors and mentees.</p>
+                    <button class="view-profile-btn" data-member="aisha-williams">View Profile</button>
                 </div>
                 <div class="team-member">
                     <div class="member-image">
-                        <img src="images/img1.jpg" alt="Igwe Mary Ebi">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                            alt="David Rodriguez">
                     </div>
-                    <h3 class="member-name">Igwe Mary Ebi</h3>
-                    <p class="member-role">Board Secretary</p>
-
-                    <button class="view-profile-btn" data-member="igwe-mary">View Profile</button>
+                    <h3 class="member-name">David Rodriguez</h3>
+                    <p class="member-role">Community Engagement Manager</p>
+                    <p class="member-bio">David builds partnerships with local organizations and coordinates our
+                        community advocacy initiatives.</p>
+                    <button class="view-profile-btn" data-member="david-rodriguez">View Profile</button>
                 </div>
-                <!---  <div class="team-member">
+                <div class="team-member">
                     <div class="member-image">
                         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
                             alt="Priya Sharma">
@@ -1578,7 +1416,8 @@
                     <p class="member-role">Education Specialist</p>
                     <p class="member-bio">Priya develops our educational curriculum and provides academic support to
                         program participants.</p>
-                </div> -->
+                    <button class="view-profile-btn" data-member="priya-sharma">View Profile</button>
+                </div>
             </div>
         </div>
     </section>
@@ -1587,8 +1426,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>Join Us in Making a Difference</h2>
-            <p>Whether you're interested in volunteering, partnering with us, or supporting our programs
-                financially,
+            <p>Whether you're interested in volunteering, partnering with us, or supporting our programs financially,
                 there are many ways to get involved and help us empower the next generation.</p>
             <div class="cta-buttons">
                 <a href="contact.html" class="btn btn-secondary">Become a Volunteer</a>
@@ -1602,8 +1440,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>YMAI</h3>
-                    <p>Inspiring, guiding, and empowering the next generation.</p>
+                    <h3>Youth Mentor</h3>
+                    <p>Empowering youth through mentorship, leadership development, and advocacy to create positive
+                        change in communities.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
@@ -1624,29 +1463,29 @@
                 <div class="footer-column">
                     <h3>Programs</h3>
                     <ul class="footer-links">
-                        <li><a href="programs.html">Youth Leadership</a></li>
-                        <li><a href="programs.html">Mentorship</a></li>
-                        <li><a href="programs.html">Career Guidance</a></li>
-                        <li><a href="programs.html">Advocacy</a></li>
-                        <li><a href="programs.html">Community Engagement</a></li>
+                        <li><a href="programs.html#mentorship-circles">Youth Mentorship Circles</a></li>
+                        <li><a href="programs.html#leadership-bootcamps">Leadership Bootcamps</a></li>
+                        <li><a href="programs.html#advocacy-forums">Youth Advocacy Forums</a></li>
+                        <li><a href="programs.html#community-projects">Community Projects</a></li>
+                        <li><a href="programs.html#scholarship-support">Scholarship Support</a></li>
+                        <li><a href="programs.html#mental-health">Mental Health Workshops</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> House 23, Mosaic Garden Estate Gaduwa District Abuja
-                        </li>
-                        <li><i class="fas fa-phone"></i> +2348038209882</li>
-                        <li><i class="fas fa-envelope"></i> ymainitiatives@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Youth Street, City, State 12345</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@youthmentor.org</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Youth Mentorship and Advocacy Initiative. All rights reserved.</p>
-                <p>Crafted by: Olive Walls Ltd.</p>
+                <p>&copy; 2023 Youth Mentorship and Advocacy Initiative. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
     <!-- Modal Overlay -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="team-modal">
@@ -1658,6 +1497,7 @@
             </div>
         </div>
     </div>
+
     <script>
         // Mobile Navigation Toggle
         const hamburger = document.getElementById('hamburger');
@@ -1680,88 +1520,29 @@
 
         // Team member data
         const teamMembers = {
-            'henry-nkemadu': {
-                name: 'Henry Nkemadu',
-                role: 'Board Member',
-                image: 'images/BOTmember2.jpg',
-                bio: `
-            <div class="profile-content">
-                <p class="profile-intro">Dr. Henry Chukwudumeme Nkemadu is the <strong>Chairman/Chief Executive of Carlton Group of Companies</strong>, an astute administrator and an outstanding nation builder.</p>
-                
-                <p class="profile-education">Born in Lagos, Nigeria, he hails from Umuhu, Ukpor, Nnewi South Local Government Area of Anambra State. Dr. Nkemadu is highly educated, holding multiple degrees and certificates from institutions including the <strong>University of Nigeria, Nsukka (UNN)</strong>, <strong>University of Port Harcourt</strong>, and <strong>George Mason University, Virginia, USA</strong>.</p>
-                
-                <div class="profile-section">
-                    <h4>Career Highlights: Nigerian Communications Commission (NCC)</h4>
-                    <p>Dr. Nkemadu has a rewarding and extensive career spanning the entire telecom regulatory ecosystem. He joined the <strong>Nigerian Communications Commission (NCC)</strong> in September 2003 as a Principal Manager in Business Development and became a full Director in June 2019.</p>
-                    
-                    <p>He is a well-groomed professional and a consummate communicator who has traversed several strategic departments within the NCC, including:</p>
-                    
-                    <ul class="profile-list">
-                        <li><strong>Director, Research and Development Department</strong></li>
-                        <li><strong>Director, Public Affairs</strong></li>
-                        <li><strong>Deputy Director/Head, Special Intervention Projects (Project Department)</strong>: Superintended the initiation, planning, and execution of intervention projects that provided ICT infrastructure and connectivity to bridge digital knowledge gaps in schools and tertiary institutions.</li>
-                        <li><strong>Deputy Director/Head of Emerging Technologies Research (Research and Development Department)</strong>: Coordinated research activities to assess the effectiveness of regulatory decisions and collected information critical to the Commission and the ICT industry.</li>
-                        <li><strong>Deputy Director/Head of Policy and Research Unit (Competition and Economic Analysis)</strong>: Coordinated policy and research functions and facilitated reviews of telecom industry policies.</li>
-                        <li><strong>Zonal Controller, Lagos Zonal Office</strong>: Served as the Administrative Head and NCC representative for the Lagos zone.</li>
-                    </ul>
-                </div>
-                
-                <div class="profile-section">
-                    <h4>Prior Private Sector Experience</h4>
-                    <p>Prior to joining the NCC, Dr. Nkemadu worked in the private sector, serving in roles such as <strong>General Manager of Carlton Technologies Limited</strong>, Special Assistant to the Group Managing Director of General Telecom Plc, General Manager of Henrino Wels Limited, and Branch Manager of R. Bernestieli Ltd.</p>
-                </div>
-                
-                <div class="profile-section">
-                    <h4>Recognition and Personal Life</h4>
-                    <p>Dr. Nkemadu is widely traveled, having visited more than thirty countries on private, official, and business assignments, making him conversant with the international business environment. His accolades include the appointment as <strong>Vice Chairman of the International Telecommunications Union (ITU) Development Sector Study Group 2</strong> for the Study Period 2018–2021.</p>
-                    
-                    <p>He is married to Mrs. Wendy Nkemadu, and they are blessed with five children.</p>
-                </div>
-            </div>
-        `
+            'michael-chen': {
+                name: 'Michael Chen',
+                role: 'Program Director',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80',
+                bio: 'Michael Chen brings over 12 years of experience in youth development and nonprofit leadership to his role as Program Director. He holds a Master\'s degree in Social Work from Columbia University and has previously worked with several international youth organizations. Michael is passionate about creating sustainable programs that empower young people from diverse backgrounds to reach their full potential. Under his leadership, our programs have expanded to reach over 10,000 youth annually.'
             },
-            'patience-ikoro': {
-                name: 'Patience Ikoro',
-                role: 'Board Member',
-                image: 'images/BOTmember.jpg',
-                bio: 'Patience Ikoro is passionate about creating meaningful connections between mentors and young people. With a background in psychology and counseling, she has developed innovative mentorship matching algorithms that have increased program satisfaction by 40%. Aisha believes that every young person deserves a caring adult in their corner, and she works tirelessly to ensure our mentorship programs create lasting, positive impacts. Her dedication to youth development has been recognized with several community awards.'
+            'aisha-williams': {
+                name: 'Aisha Williams',
+                role: 'Mentorship Coordinator',
+                image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80',
+                bio: 'Aisha Williams is passionate about creating meaningful connections between mentors and young people. With a background in psychology and counseling, she has developed innovative mentorship matching algorithms that have increased program satisfaction by 40%. Aisha believes that every young person deserves a caring adult in their corner, and she works tirelessly to ensure our mentorship programs create lasting, positive impacts. Her dedication to youth development has been recognized with several community awards.'
             },
-            'igwe-mary': {
-                name: 'Igwe Mary Ebi',
-                role: 'Board Secretary',
-                image: 'images/img1.jpg',
-                bio: `
-            <div class="profile-content">
-                <p class="profile-intro">Igwe Mary Ebi is a dedicated and purpose-driven individual committed to making a positive impact in every environment she finds herself. Guided by the core values of excellence, integrity, and service, she consistently strives to deliver outstanding results through every task she undertakes.</p>
-                
-                <p class="profile-education">Her professional approach is defined by a deep sense of responsibility and a passion for adding value to individuals, teams, and organizations.</p>
-                
-                <div class="profile-section">
-                    <h4>Professional Expertise</h4>
-                    <p>With strong skills in <strong>System Analysis</strong> and <strong>Digital Marketing</strong>, Mary combines analytical thinking with creativity and strategic insight. Her ability to understand complex systems, align them with user needs, and support digital growth initiatives places her at the intersection of technology and communication.</p>
-                    
-                    <p>Mary's unique skill set allows her to bridge the gap between technical requirements and user experience, ensuring that digital solutions are both functionally robust and user-friendly.</p>
-                </div>
-                
-                <div class="profile-section">
-                    <h4>Career Vision</h4>
-                    <p>Mary's overarching goal is to contribute meaningfully to the development of people and organizations by applying her skills, embracing continuous learning, and maintaining an unwavering commitment to excellence.</p>
-                    
-                    <p>She aspires to be a catalyst for growth, innovation, and positive transformation wherever she goes, bringing together technical expertise and creative problem-solving to drive meaningful change.</p>
-                </div>
-                
-                <div class="profile-section">
-                    <h4>Core Competencies</h4>
-                    <ul class="profile-list">
-                        <li><strong>System Analysis</strong>: Comprehensive understanding of complex systems and user requirements</li>
-                        <li><strong>Digital Marketing Strategy</strong>: Creative and data-driven approach to digital growth</li>
-                        <li><strong>Strategic Planning</strong>: Aligning technical solutions with organizational objectives</li>
-                        <li><strong>User-Centric Design</strong>: Ensuring systems meet both functional and user experience needs</li>
-                        <li><strong>Continuous Innovation</strong>: Staying current with emerging technologies and marketing trends</li>
-                    </ul>
-                </div>
-            </div>
-        `
+            'david-rodriguez': {
+                name: 'David Rodriguez',
+                role: 'Community Engagement Manager',
+                image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                bio: 'David Rodriguez has built partnerships with over 50 community organizations and local businesses. His innovative approach to community engagement has helped secure funding for multiple youth initiatives and expanded our program reach by 200% in the last three years. David\'s background in community organizing and his deep understanding of local needs make him an invaluable asset to our team. He is committed to ensuring that our programs are responsive to community needs and create meaningful, sustainable change.'
+            },
+            'priya-sharma': {
+                name: 'Priya Sharma',
+                role: 'Education Specialist',
+                image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                bio: 'Priya Sharma develops comprehensive educational curricula that combine academic excellence with practical life skills. Her innovative teaching methods have helped increase program participants\' academic performance by an average of 35%. She is fluent in three languages and brings international perspective to our programs. Priya\'s commitment to educational equity drives her work, and she continuously seeks new ways to make learning engaging and relevant for young people from all backgrounds.'
             }
         };
 

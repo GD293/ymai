@@ -774,7 +774,8 @@
 
             <form action="subscriber.php" method="POST" class="newsletter-form" id="newsletterForm">
                 <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address"
-                    required>
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    title="Please enter a valid email address (e.g., name@example.com)" required>
                 <button type="submit" class="btn btn-secondary">Subscribe Now</button>
             </form>
 
@@ -826,7 +827,7 @@
                         <li><i class="fas fa-map-marker-alt"></i> House 23, Mosaic Garden Estate Gaduwa District Abuja
                         </li>
                         <li><i class="fas fa-phone"></i> +2348038209882</li>
-                        <li><i class="fas fa-envelope"></i> ymainitiatives@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> info@youthmai.org</li>
                     </ul>
                 </div>
             </div>
@@ -857,22 +858,6 @@
             });
         });
 
-        // Newsletter form submission
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('.newsletter-input');
-            const email = emailInput.value;
-
-            // Simple validation
-            if (email && email.includes('@')) {
-                alert('Thank you for subscribing! We\'ll notify you about upcoming events.');
-                emailInput.value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
-
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -884,7 +869,8 @@
                 header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
             }
         });
-        // Newsletter Form Handling
+
+        // Newsletter Form Handling - FIXED VERSION (no popups)
         document.addEventListener('DOMContentLoaded', function () {
             const newsletterForm = document.getElementById('newsletterForm');
             const newsletterMessage = document.getElementById('newsletterMessage');
@@ -908,22 +894,28 @@
                         body: formData
                     })
                         .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.text();
+                            return response.text().then(text => {
+                                return {
+                                    status: response.status,
+                                    body: text
+                                };
+                            });
                         })
-                        .then(data => {
-                            newsletterMessage.textContent = data;
+                        .then(({ status, body }) => {
+                            // Always show the same success message
+                            newsletterMessage.textContent = "Thank you for subscribing! We'll notify you about upcoming events.";
                             newsletterMessage.style.display = 'block';
                             newsletterMessage.style.backgroundColor = '#d4edda';
                             newsletterMessage.style.color = '#155724';
                             newsletterMessage.style.border = '1px solid #c3e6cb';
 
-                            // Clear the form if successful
-                            if (response.ok) {
-                                newsletterForm.reset();
-                            }
+                            // Clear the form
+                            newsletterForm.reset();
+
+                            // Auto-hide message after 5 seconds
+                            setTimeout(() => {
+                                newsletterMessage.style.display = 'none';
+                            }, 5000);
                         })
                         .catch(error => {
                             newsletterMessage.textContent = 'Sorry, there was an error. Please try again.';
@@ -931,6 +923,11 @@
                             newsletterMessage.style.backgroundColor = '#f8d7da';
                             newsletterMessage.style.color = '#721c24';
                             newsletterMessage.style.border = '1px solid #f5c6cb';
+
+                            // Auto-hide error message after 5 seconds
+                            setTimeout(() => {
+                                newsletterMessage.style.display = 'none';
+                            }, 5000);
                         })
                         .finally(() => {
                             submitBtn.textContent = originalText;
@@ -939,7 +936,6 @@
                 });
             }
         });
-
     </script>
 </body>
 

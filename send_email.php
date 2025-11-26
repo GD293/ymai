@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
     
-    // Set the recipient email address
-    $recipient = "your-email@yourdomain.com"; // Change this to your email
+    // Set the recipient email address - CHANGED TO YOUR ACTUAL EMAIL
+    $recipient = "info@youthmai.org";
     
     // Set the email subject
     $email_subject = "New contact from $name: $subject";
@@ -31,10 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send the email
     if (mail($recipient, $email_subject, $email_content, $email_headers)) {
         http_response_code(200);
-        echo "Thank You! Your message has been sent.";
+        echo "success";
     } else {
         http_response_code(500);
-        echo "Oops! Something went wrong and we couldn't send your message.";
+        echo "error";
     }
     
 } else {

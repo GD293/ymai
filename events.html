@@ -765,15 +765,22 @@
     </section>
 
     <!-- Newsletter Section -->
+    <!-- Newsletter Section -->
     <section class="newsletter-section" id="newsletter">
         <div class="container">
             <h2>Stay Connected</h2>
             <p>Subscribe to our newsletter and be the first to know about upcoming events, program updates, and
                 opportunities to get involved.</p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                <button type="submit" class="btn btn-secondary">Subscribe</button>
+
+            <form action="subscriber.php" method="POST" class="newsletter-form" id="newsletterForm">
+                <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address"
+                    required>
+                <button type="submit" class="btn btn-secondary">Subscribe Now</button>
             </form>
+
+            <div id="newsletterMessage" style="display: none; margin-top: 20px; padding: 15px; border-radius: 5px;">
+            </div>
+
             <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">We respect your privacy and will never share
                 your information.</p>
         </div>
@@ -877,6 +884,57 @@
                 header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
             }
         });
+        // Newsletter Form Handling
+        document.addEventListener('DOMContentLoaded', function () {
+            const newsletterForm = document.getElementById('newsletterForm');
+            const newsletterMessage = document.getElementById('newsletterMessage');
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+
+                    // Show loading state
+                    submitBtn.textContent = 'Subscribing...';
+                    submitBtn.disabled = true;
+                    newsletterMessage.style.display = 'none';
+
+                    const formData = new FormData(this);
+
+                    fetch('subscriber.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            newsletterMessage.textContent = data;
+                            newsletterMessage.style.display = 'block';
+                            newsletterMessage.style.backgroundColor = '#d4edda';
+                            newsletterMessage.style.color = '#155724';
+                            newsletterMessage.style.border = '1px solid #c3e6cb';
+
+                            if (data.includes('Thank you')) {
+                                newsletterForm.reset();
+                            }
+                        })
+                        .catch(error => {
+                            newsletterMessage.textContent = 'Sorry, there was an error. Please try again.';
+                            newsletterMessage.style.display = 'block';
+                            newsletterMessage.style.backgroundColor = '#f8d7da';
+                            newsletterMessage.style.color = '#721c24';
+                            newsletterMessage.style.border = '1px solid #f5c6cb';
+                        })
+                        .finally(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        });
+                });
+            }
+        });
+
+
     </script>
 </body>
 

@@ -907,7 +907,12 @@
                         method: 'POST',
                         body: formData
                     })
-                        .then(response => response.text())
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
                         .then(data => {
                             newsletterMessage.textContent = data;
                             newsletterMessage.style.display = 'block';
@@ -915,7 +920,8 @@
                             newsletterMessage.style.color = '#155724';
                             newsletterMessage.style.border = '1px solid #c3e6cb';
 
-                            if (data.includes('Thank you')) {
+                            // Clear the form if successful
+                            if (response.ok) {
                                 newsletterForm.reset();
                             }
                         })
@@ -933,7 +939,6 @@
                 });
             }
         });
-
 
     </script>
 </body>
